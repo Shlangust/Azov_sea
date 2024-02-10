@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+.rectangle {
+	width: 1702px;
+	height: 429px;
+	background: #003153;
+	border-radius: 61px;
+	margin-top: 70px;
+
+	}
+
+
+.catalog {
+	position: absolute;
+	width: 983.852px;
+	height: 121px;
+	color: #FFF;
+	font-family: Inter;
+	font-size: 50px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+	padding-left: 35px;
+	padding-top: 59px;
+	z-index: 1;
+}
+
+.text {
+	position: absolute;
+	width: 706px;
+	height: 32px;
+	color: #FFF;
+	font-family: Inter;
+	font-size: 29px;
+	font-weight: 800;
+	padding-left: 47px;
+	padding-top: 260px;
+	z-index: 1;
+}
+
+.image {
+	width: 624.245px;
+	height: 429px;
+	border-radius: 3px 62px 62px 0px;
+	margin-left: 1077px;
+	padding-top: 1px;
+}
+
+.cards {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 135px;
+	margin-left: 47px;
+
+
+}
+
+.card {
+	margin-left: 60px;
+	width: 450px;
+	height: 450px;
+	border-radius: 50px;
+	background: #003153;
+
+}
+
+.card_text {
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 25px;
+	padding-left: 18px;
+
+}
+
+.coordinates {
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.coordinates_text {
+	width: 320px;
+	height: 23px;
+	color: #FFF;
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+
+}
+
+.data {
+	height: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+}
+
+
+
+
+.data_text {
+	width: 320px;
+	height: 23px;
+	color: #FFF;
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+}
+
+.search {
+	display: flex;
+
+	width: 700px;
+	padding: 10px 100px;
+
+	border-radius: 56px;
+	border: 6px solid #003153;
+	background: #FFF;
+	color: rgba(0, 0, 0, 0.40);
+
+
+	font-family: Inter;
+	text-align: center;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 800;
+
+
+	justify-content: center;
+	align-items: center;
+}
+
+.searching{
+	display: flex;
+}
+
+.button {
+	width: 218px;
+	height: 88px;
+	border-radius: 20px;
+	background: #003153;
+	color: #FFF;
+	font-family: Inter;
+	font-size: 29px;
+	font-weight: 800;
+}
+
+
+
