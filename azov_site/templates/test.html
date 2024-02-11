@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+
+     <div id="map" style="height: 400px;"></div>
+
+    <script>
+        var map = L.map('map').setView({{ marker_coords | tojson }}, 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        var marker = L.marker({{ marker_coords | tojson }}).addTo(map);
+        marker.bindPopup("{{ marker_text }}").openPopup();
+    </script>
+
+
+</body>
+</html>
