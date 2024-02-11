@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result_style.css') }}">
+</head>
+<body>
+<h1>test{{ser}}</h1>
+    
+    <div class="searching">
+            <input name="ser" type="text" placeholder="поиск" class="search">
+            <input class="button" type="submit" value='search'>
+    </div>
+
+    <div class="images">
+        <div class="image_1">
+            <img class="image_1", src="{{ url_for('static', filename='img/for_bd/rcard1.png') }}">
+            <div class="coordinates">
+                <div class="coordinates_text">
+                    {{ lats[0] }} с. ш., {{ lons[0] }} в. д.
+                </div>
+            </div>
+            <div class=date>
+                <div class="date_text">
+                    Дата съёмки: {{ dates[0] }}
+                </div>
+                 <div class="date_text">
+                    Время: {{ times[0] }}
+                </div>
+            </div>
+        </div>
+        <div class="image_2">
+            <img class="image_2" src="{{ url_for('static', filename='img/for_bd/rcard2.png') }}">
+            <div class="coordinates">
+                <div class="coordinates_text">
+                    {{ lats[1] }} с. ш., {{ lons[1] }} в. д.
+                </div>
+            </div>
+            <div class=date>
+                <div class="date_text">
+                    Дата съёмки: {{ dates[1] }}
+                </div>
+                 <div class="date_text">
+                    Время: {{ times[1] }}
+                </div>
+            </div>
+        </div>
+        <div class="image_3">
+            <img class="image_3" src="{{ url_for('static', filename='img/for_bd/rcard3.png') }}">
+            <div class="coordinates">
+                <div class="coordinates_text">
+                    {{ lats[2] }} с. ш., {{ lons[2] }} в. д.
+                </div>
+            </div>
+            <div class=date>
+                <div class="date_text">
+                    Дата съёмки: {{ dates[2] }}
+                </div>
+                 <div class="date_text">
+                    Время: {{ times[2] }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

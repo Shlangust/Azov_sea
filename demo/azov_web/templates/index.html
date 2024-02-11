@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>side</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+	<form action="/result" method="post">
+		<div class="searching">
+			<input name="ser" type="text" placeholder="поиск" class="search">
+			<input class="button" type="submit" value='search'>
+		</div>
+
+
+
+
+	<div class="rectangle">
+		<div class="catalog">
+			Каталог изображений прибрежной зоны Азовского моря
+		</div>
+		<div class="text">
+			сравнивайте вид берега в разное время
+		</div>
+		 <img class="image_1" src="{{ url_for('static', filename='img/image1.png') }}">
+	</div>
+
+	<div class="cards">
+
+		<div class="card">
+			<img class="images" src="{{ url_for('static', filename='img/for_bd/indexcard1.png') }}">
+			<div class="card_text">
+				<div class="coordinates">
+					<div class="coordinates_text">
+						Координаты
+					</div>
+
+					<div class="coordinates_text">
+						{{ lats[0] }} с. ш., {{ lons[0] }} в. д.
+					</div>
+				</div>
+				<div class="data">
+					<div class="data_text">
+						Дата съёмки
+					</div>
+
+					<div class="data_text">
+						{{ dates[0] }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card">
+			<img class="images" src="{{ url_for('static', filename='img/for_bd/indexcard2.png') }}">
+			<div class="card_text">
+				<div class="coordinates">
+					<div class="coordinates_text">
+						Координаты
+					</div>
+					<div class="coordinates_text">
+						{{ lats[1] }} с. ш., {{ lons[1] }} в. д.
+					</div>
+				</div>
+				<div class="data">
+					<div class="data_text">
+						Дата съёмки
+					</div>
+					<div class="data_text">
+						{{ dates[1] }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card">
+			<img class="images" src="{{ url_for('static', filename='img/for_bd/indexcard3.png') }}">
+			<div class="card_text">
+				<div class="coordinates">
+					<div class="coordinates_text">
+						Координаты
+					</div>
+					<div class="coordinates_text">
+						{{ lats[2] }} с. ш., {{ lons[2] }} в. д.
+					</div>
+				</div>
+				<div class="data">
+					<div class="data_text">
+						Дата съёмки
+					</div>
+					<div class="data_text">
+						{{ dates[2] }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+<div>
+<div class="ctext">
+	<p>Здесь вы можете видеть координаты всех объектов, которые у нас есть</p>
+	<p>Копируйте в поиск и ищите фото</p>
+</div>
+
+<div id="map" style="width: 1000px; height: 700px;"></div>
+<script>
+    var map = L.map('map').setView([47, 39], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    {% for marker in markers %}
+        var marker = L.marker({{ marker["coords"] }}).addTo(map);
+        marker.bindPopup("{{ marker['text'] }}").openPopup();
+
+        marker.on('click', function(e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+
+            fetch('/update_coords', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ lat: lat, lng: lng })
+            });
+        });
+    {% endfor %}
+</script>
+
+</body>
+</html>
